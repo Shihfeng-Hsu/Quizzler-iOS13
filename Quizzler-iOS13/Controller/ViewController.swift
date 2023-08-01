@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var scroeLabel: UILabel!
     
-
     var quizBrain = QuizBrain()
 
     
@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateQuestion()
         
 
@@ -61,6 +60,7 @@ class ViewController: UIViewController {
 ///Animation ver.
         
         progressBar.progress = quizBrain.getProgress()
+        scroeLabel.text = "Score: \(quizBrain.score)"
     }
     
 }
