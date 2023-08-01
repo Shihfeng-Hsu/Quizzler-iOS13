@@ -14,9 +14,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var scroeLabel: UILabel!
+    
+    @IBOutlet weak var topButton: UIButton!
+    @IBOutlet weak var middleButton: UIButton!
+    @IBOutlet weak var bottomButton: UIButton!
     
     var quizBrain = QuizBrain()
 
@@ -51,9 +53,14 @@ class ViewController: UIViewController {
     @objc func updateQuestion(){
  
         questionLabel.text = quizBrain.getQuiz().text
-            trueButton.backgroundColor = UIColor.clear
-
-            falseButton.backgroundColor = UIColor.clear
+        let quizButtonText = quizBrain.getQuiz().answer
+        topButton.setTitle(quizButtonText[0], for: .normal)
+        middleButton.setTitle(quizButtonText[1], for: .normal)
+        bottomButton.setTitle(quizButtonText[2], for: .normal)
+        
+        topButton.backgroundColor = UIColor.clear
+        middleButton.backgroundColor = UIColor.clear
+        bottomButton.backgroundColor = UIColor.clear
 ///Animation ver.
 //        progressRate = Double(quizNumber+1)/Double(quiz.count)
 //        progressBar.setProgress(Float(progressRate), animated: true)
